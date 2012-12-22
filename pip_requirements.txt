@@ -1,0 +1,15 @@
+Django==1.5b2
+Fabric
+Pillow
+South
+django-annoying
+django-debug-toolbar
+django-extensions
+django-guardian
+django-redis-cache
+django-redis-sessions
+django-userena
+easy-thumbnails
+hiredis
+redis
+psycopg2
