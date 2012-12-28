@@ -50,7 +50,7 @@ SESSION_REDIS_PORT = 6379
 SESSION_REDIS_DB = 0
 #SESSION_REDIS_PASSWORD = 'password'
 
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 
