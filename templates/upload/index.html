@@ -3,5 +3,14 @@
 
 
 {% block content %}
-Hello blackbar!
+{% for photo in latest_photo_list %}
+    <div class="photo">
+    <img src="/static/upload/{{ photo.src }}" alt="photo">
+    <p>{{ photo.caption }}</p>
+    </div>
+{% empty %}
+    <div class="photo">
+        Sorry, no photos, yet!
+    </div>
+{% endfor %}
 {% endblock %}

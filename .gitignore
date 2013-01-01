@@ -1,3 +1,4 @@
 *.pyc
 *.komodoproject
 static/
+media/upload
