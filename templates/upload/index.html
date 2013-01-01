@@ -6,7 +6,7 @@
 {% for photo in latest_photo_list %}
     <div class="photo">
     <img src="/static/upload/{{ photo.src }}" alt="photo">
-    <p>{{ photo.caption }}</p>
+    <span>{{ photo.caption }}</span>
     </div>
 {% empty %}
     <div class="photo">

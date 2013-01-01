@@ -2,3 +2,4 @@
 *.komodoproject
 static/
 media/upload
+media/.sass-cache
