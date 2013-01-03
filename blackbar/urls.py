@@ -7,7 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'blackbar.views.home', name='home'),
-    url('', include('upload.urls')),
+    url('', include('upload.urls'), name='upload'),
     url(r'^accounts/', include('userena.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

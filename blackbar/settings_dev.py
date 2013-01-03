@@ -69,7 +69,7 @@ STATIC_ROOT = rel('../static')
 STATIC_URL = '/static/'
 MEDIA_ROOT = rel('../static/upload')
 MEDIA_URL =  '/static/upload/'
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+#ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 STATICFILES_DIRS = (
     rel('../media'),
@@ -144,6 +144,10 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 USERENA_WITHOUT_USERNAMES = True
+USERENA_ACTIVATION_REQUIRED = True
+USERENA_DEFAULT_PRIVACY = 'closed'
+USERENA_SIGNIN_REDIRECT_URL = '/'
+
 ANONYMOUS_USER_ID = -1
 AUTH_PROFILE_MODULE='upload.BlackbarProfile'
 

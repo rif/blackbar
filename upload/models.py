@@ -16,7 +16,7 @@ class Photo(models.Model):
     caption = models.TextField()
     src = models.ImageField(upload_to="photos")
     pub_date = models.DateTimeField(auto_now=True)
-    __unicode__ = lambda self: self.caption
+    __unicode__ = lambda self: self.title
 
     def get_absolute_url():
         return ""

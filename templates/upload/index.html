@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load url from future %}
 
 {% block content %}
 {% for photo in latest_photo_list %}
@@ -12,7 +13,7 @@
             <span class="caption">
                 {{ photo.caption|truncatechars:300|linebreaks }}
                 {% if photo.caption|length > 300 %}
-                <a class="seemore" href="{% url get_full_caption photo.id %}">see more</a>
+                <a class="seemore" href="{% url 'get_full_caption' photo.id %}">see more</a>
                 {% endif %}
             </span>
             
@@ -20,7 +21,9 @@
     </div>
 {% empty %}
     <div class="row">
-        Sorry, no photos, yet!
+        <div class="span6">
+            Sorry, no photos, yet!
+        </div>
     </div>
 {% endfor %}
 {% if is_paginated %}
