@@ -4,13 +4,27 @@
 
 {% block content %}
 {% for photo in latest_photo_list %}
-    <div class="photo">
-    <img src="/static/upload/{{ photo.src }}" alt="photo">
-    <span>{{ photo.caption }}</span>
+    <div class="photo row-fluid">
+        <div class="span6">
+            <img src="/static/upload/{{ photo.src }}" alt="photo">
+        </div>
+        <div class="span6">
+            <h2>{{ photo.title }}</h2>
+            <span class="caption">{{ photo.caption }}</span>
+        </div>
     </div>
 {% empty %}
-    <div class="photo">
+    <div class="row">
         Sorry, no photos, yet!
     </div>
 {% endfor %}
+{% endblock %}
+
+{% block extrasscript %}
+<script src="{{ STATIC_URL }}js/jquery.jtruncate.pack.js"></script>
+<script>
+    $(function(){
+        $(".caption").jTruncate();
+    })
+</script>
 {% endblock %}

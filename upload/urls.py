@@ -4,7 +4,7 @@ from models import Photo
 
 urlpatterns = patterns('',
     url(r'^$',  ListView.as_view(
-            queryset=Photo.objects.order_by('-pub_date')[:5],
+            queryset=Photo.objects.order_by('-pub_date')[:1],
             context_object_name='latest_photo_list',
             template_name='upload/index.html'),
         name='index'),

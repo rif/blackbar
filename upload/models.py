@@ -12,7 +12,8 @@ class BlackbarProfile(UserenaBaseProfile):
 
 class Photo(models.Model):
     user = models.ForeignKey(User)
-    caption = models.TextField(max_length=300)
+    title = models.CharField(max_length=75)
+    caption = models.TextField()
     src = models.ImageField(upload_to="photos")
     pub_date = models.DateTimeField(auto_now=True)
     __unicode__ = lambda self: self.caption
