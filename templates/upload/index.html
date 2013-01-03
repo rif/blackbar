@@ -10,7 +10,11 @@
         </div>
         <div class="span6">
             <h2>{{ photo.title }}</h2>
-            <span class="caption">{{ photo.caption }}</span>
+            <span class="caption">
+                {{ photo.caption|truncatechars:300|linebreaks }}
+                <a class="seemore" href="{% url get_full_caption photo.id %}">see more</a>
+            </span>
+            
         </div>
     </div>
 {% empty %}
@@ -21,10 +25,15 @@
 {% endblock %}
 
 {% block extrasscript %}
-<script src="{{ STATIC_URL }}js/jquery.jtruncate.pack.js"></script>
-<script>
-    $(function(){
-        $(".caption").jTruncate();
-    })
-</script>
+    <script>
+        $(function(){
+            $(".caption").on('click', '.seemore', function(){
+                var link = $(this);
+                $.get(link.attr("href"), function(response){
+                    link.parent().html(response.caption);
+                });
+                return false;
+            });
+        });
+    </script>
 {% endblock %}

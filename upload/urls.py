@@ -9,4 +9,5 @@ urlpatterns = patterns('',
             template_name='upload/index.html'),
         name='index'),
     url(r'^upload/$', 'upload.views.upload', name='upload'),
+    url(r'^fullcaption/(?P<id>\d+)/$', 'upload.views.get_full_caption', name='get_full_caption'),
 )
