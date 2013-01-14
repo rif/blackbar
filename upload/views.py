@@ -17,6 +17,11 @@ def upload(request):
         return redirect('index')
     return locals()
 
+@render_to('upload/edit.html')
+def edit(request, id):
+    photo = get_object_or_404(Photo, pk=id)
+    return locals()
+
 @ajax_request
 def get_full_caption(request, id):
     photo = get_object_or_404(Photo, pk=id)

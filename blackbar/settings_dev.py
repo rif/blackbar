@@ -152,9 +152,9 @@ ANONYMOUS_USER_ID = -1
 AUTH_PROFILE_MODULE='upload.BlackbarProfile'
 
 if DEBUG:
-    INSTALLED_APPS += ('debug_toolbar',
-                       'django.contrib.sessions', # session in database
-                       )
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

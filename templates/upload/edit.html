@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block content %}
+<div class="row">
+    <div class="span10" id="photo">
+        <img src="/static/upload/{{ photo.src }}" alt="photo">
+    </div>
+    <div class="span2" id="tools">
+        <div id="blackbars">
+            <div id="bbar1" class="bbar ui-draggable ui-resizable"></div>
+        </div>
+        <div id="trash" class="ui-widget-content ui-state-default ui-droppable">
+            <h4 class="ui-widget-header">
+                Trash
+            </h4>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extrasscript %}
+    <script>
+        $(function(){
+           var rotate = 0; 
+           $('#bbar1').draggable({
+              start: function( event, ui ) {
+                var bbar = $(this);
+                if(!bbar.hasClass('started')){
+                    bbar.addClass('started');
+                    $("#blackbars").append('<div id="bbar2" class="bbar ui-draggable ui-resizable"></div>');
+                    $("#bbar2").draggable().resizable();
+                }
+              },
+              drag: function ( event, ui ) {
+                  if (event.ctrlKey) {
+                      var rotateCSS = 'rotate(' + rotate + 'deg)';
+                      rotate += 1;
+                      $(this).css({
+                        '-moz-transform': rotateCSS,
+                        '-webkit-transform': rotateCSS
+                    });
+                    return true;
+                  }
+                  rotate = 0;
+              },
+           }).resizable();
+           $( "#photo" ).droppable({
+              drop: function( event, ui ) {
+                console.log("photo drop: ", event, ui);
+              }
+            });
+           $( "#trash" ).droppable({
+              drop: function( event, ui ) {
+                console.log("trash drop!");
+              }
+            });
+        });
+    </script>
+{% endblock %}

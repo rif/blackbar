@@ -10,5 +10,6 @@ urlpatterns = patterns('',
             paginate_by = 1),
         name='index'),
     url(r'^upload/$', 'upload.views.upload', name='upload'),
+    url(r'^edit/(?P<id>\d+)/$', 'upload.views.edit', name='edit'),
     url(r'^fullcaption/(?P<id>\d+)/$', 'upload.views.get_full_caption', name='get_full_caption'),
 )
