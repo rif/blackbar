@@ -1,5 +1,3 @@
 *.pyc
-*.komodoproject
-static/
-media/upload
-media/.sass-cache/
+upload/static/upload
+.sass-cache/
