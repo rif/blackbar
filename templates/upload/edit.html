@@ -35,7 +35,7 @@
                 }
               },
               drag: function ( event, ui ) {
-                  if (event.ctrlKey) {
+                  if (event.shiftKey) {
                       var rotateCSS = 'rotate(' + rotate + 'deg)';
                       rotate += 1;
                       $(this).css({
@@ -60,3 +60,4 @@
         });
     </script>
 {% endblock %}
+

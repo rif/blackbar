@@ -31,23 +31,11 @@ DATABASES = {
     }
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': '127.0.0.1:6379',
-        'OPTIONS': {
-            'DB': 1,
-            #'PASSWORD': 'yadayada',
-            #'PARSER_CLASS': 'redis.connection.HiredisParser'
-        },
-    },
-}
-
 #SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
-SESSION_ENGINE = 'redis_sessions.session'
-SESSION_REDIS_HOST = 'localhost'
-SESSION_REDIS_PORT = 6379
-SESSION_REDIS_DB = 0
+#SESSION_ENGINE = 'redis_sessions.session'
+#SESSION_REDIS_HOST = 'localhost'
+#SESSION_REDIS_PORT = 6379
+#SESSION_REDIS_DB = 0
 #SESSION_REDIS_PASSWORD = 'password'
 
 LOGIN_REDIRECT_URL = '/'
@@ -146,15 +134,14 @@ DEBUG_TOOLBAR_CONFIG = {
 USERENA_WITHOUT_USERNAMES = True
 USERENA_ACTIVATION_REQUIRED = True
 USERENA_DEFAULT_PRIVACY = 'closed'
-USERENA_SIGNIN_REDIRECT_URL = '/'
 
 ANONYMOUS_USER_ID = -1
 AUTH_PROFILE_MODULE='upload.BlackbarProfile'
 
 if DEBUG:
-    INSTALLED_APPS += (
-        'debug_toolbar',
-    )
+    INSTALLED_APPS += ('debug_toolbar',
+                       'django.contrib.sessions', # session in database
+                       )
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
