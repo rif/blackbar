@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
 from userena.models import UserenaBaseProfile
+from blackbar import settings
+import os
 
 class BlackbarProfile(UserenaBaseProfile):
     user = models.OneToOneField(User,
@@ -24,7 +26,7 @@ class Photo(models.Model):
     def save(self, *args, **kwargs):
         import cv
         super(Photo, self).save(*args, **kwargs) # Call the "real" save() method.
-        file_name = 'static/upload/' + self.src.name 
+        file_name = os.path.join(settings.MEDIA_ROOT, self.src.name)
         im = cv.LoadImage(file_name)#, cv.CV_LOAD_IMAGE_GRAYSCALE) # input image
         size = cv.GetSize(im)
 	if size[0] > 1500 or size[1] > 1500:
@@ -32,8 +34,8 @@ class Photo(models.Model):
                 cv.Resize(im, thumbnail)
                 im = thumbnail
         # loading the classifiers
-        haarFace = cv.Load('static/haarcascade_frontalface_default.xml')
-        haarEyes = cv.Load('static/haarcascade_eye.xml')
+        haarFace = cv.Load(os.path.join(settings.STATIC_ROOT, 'haarcascade_frontalface_default.xml'))
+        haarEyes = cv.Load(os.path.join(settings.STATIC_ROOT, 'haarcascade_eye.xml'))
         # running the classifiers
         storage = cv.CreateMemStorage()
         detectedFace = cv.HaarDetectObjects(im, haarFace, storage)

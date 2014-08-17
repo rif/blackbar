@@ -17,10 +17,10 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'upload/static')
 STATIC_URL = '/static/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'static/upload')
-#MEDIA_URL =  '/static/upload/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload/static/upload')
+MEDIA_URL =  '/static/upload/'
 
 
 # Make this unique, and don't share it with anybody.
