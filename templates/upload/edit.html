@@ -25,17 +25,17 @@
 <script>
  $(function(){
    var rotate = 0;
-   var startFunc = function(){
+   function startFunc(){
      var b = $('<div  class="bbar ui-draggable ui-resizable"></div>');
-     $("#blackbars").prepend(b);
-     b.draggable(dragOpt).resizable()
+     $("#blackbars").append(b);
+     b.draggable(dragOpt).resizable();
    };
    var dragOpt = {
      start: function( event, ui ) {
        var bbar = $(this);
        if(!bbar.hasClass('started')){
          bbar.addClass('started');
-	 startFunc();
+	 setTimeout(startFunc, 500);
        }
      },
      drag: function ( event, ui ) {

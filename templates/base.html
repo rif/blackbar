@@ -16,7 +16,7 @@
       }
     </style>
     <link href="{% static 'css/bootstrap-responsive.min.css' %}" rel="stylesheet">
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <!-- script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script-->
     <link href="{{ STATIC_URL }}css/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ STATIC_URL }}css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="{{ STATIC_URL }}css/print.css" media="print" rel="stylesheet" type="text/css" />
@@ -27,8 +27,8 @@
   </head>
 
   <body>
-    
-    {% block navbar %}    
+
+    {% block navbar %}
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -41,10 +41,10 @@
           <div class="nav-collapse">
             <p class="navbar-text pull-right">
               {% if user.is_authenticated %}
-              Hello <a class="navbar-link" href="{% url 'userena_profile_detail' user.username %}"><span>{% trans 'Account' %} ({{ user.username }})</span></a>, 
+              Hello <a class="navbar-link" href="{% url 'userena_profile_detail' user.username %}"><span>{% trans 'Account' %} ({{ user.username }})</span></a>,
               <a class="navbar-link" href="{% url 'userena_signout' %}"><span>{% trans 'Signout' %}</span></a>
               {% else %}
-              <a class="navbar-link" href="{% url 'userena_signin' %}"><span>{% trans 'SignIn' %}</span></a> or 
+              <a class="navbar-link" href="{% url 'userena_signin' %}"><span>{% trans 'SignIn' %}</span></a> or
               <a  class="navbar-link" href="{% url 'userena_signup' %}"><span>{% trans 'SignUp' %}</span></a>
               {% endif %}
             </p>
@@ -52,7 +52,7 @@
               <li class="active"><a href="/">Home</a></li>
               <li><a href="{% url 'upload' %}">Upload</a></li>
               <li><a href="#contact">Contact</a></li>
-               
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -60,7 +60,7 @@
     </div>
     {% endblock %}
     <div class="container-fluid">
-      {% block content %}    
+      {% block content %}
       {% endblock %}
 	<footer>
       <p>
@@ -72,7 +72,7 @@
     <script src="{{ STATIC_URL }}js/jquery-1.8.3.min.js"></script>
     <script src="{{ STATIC_URL }}js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
-    <script src="{{ STATIC_URL }}js/snow.js"></script>
+    <!-- script src="{{ STATIC_URL }}js/snow.js"></script-->
     {% block extrasscript %}{% endblock %}
   </body>
 </html>
